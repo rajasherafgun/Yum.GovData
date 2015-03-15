@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script>
+
+    $(document).ready(function () {
+        $('#tblGov').DataTable();
+    });
+</script>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>
+                    @ViewBag.Title.
+                </h1>
+                <h2>
+
+                    @ViewBag.Message
+                </h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following:</h3>
+<div id="tablewrapper" >
+    <table id="tblGov" style="width:100%">
+        <thead>
+            <tr>
+                <td>NameofPublicBody  </td>
+                <td>TypeofOrganization  </td>
+                <td>ControllingBody  </td>
+                <td>Address  </td>
+                <td>ContactNos  </td>
+                <td>FaxNos  </td>
+                <td>Website  </td>
+                <td>EmailAddress  </td>
+                <td>ExtraInfoType  </td>
+                <td>ExtraInfoValue  </td>
+                <td>ExtraInfoType2  </td>
+                <td>ExtraInfoValue2  </td>
+                <td>ExtraInfoType3  </td>
+                <td>ExtraInfoValue3  </td>
+            </tr>
+        </thead>
+
+
+        @foreach (Yum.GovData.Models.RecordViewModel obj in ViewBag.ModelList)
+        {
+
+            <tr>
+
+                <td>@obj.NameofPublicBody  </td>
+                <td>@obj.TypeofOrganization  </td>
+                <td>@obj.ControllingBody  </td>
+                <td>@obj.Address  </td>
+                <td>@obj.ContactNos  </td>
+                <td>@obj.FaxNos  </td>
+                <td>@obj.Website  </td>
+                <td>@obj.EmailAddress  </td>
+                <td>@obj.ExtraInfoType  </td>
+                <td>@obj.ExtraInfoValue  </td>
+                <td>@obj.ExtraInfoType2  </td>
+                <td>@obj.ExtraInfoValue2  </td>
+                <td>@obj.ExtraInfoType3  </td>
+                <td>@obj.ExtraInfoValue3  </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<style>
+    #tablewrapper {
+        overflow:scroll;
+    }
+</style>
